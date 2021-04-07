@@ -1,4 +1,5 @@
 import request from 'supertest';
+import { isNumericLiteral } from 'typescript';
 import { app } from '../../app';
 
 it('repsonds with details about the current user', async () => {
@@ -19,5 +20,5 @@ it('repsonds with null', async () => {
     .send()
     .expect(200);
 
-  expect(response.body.currentUser).toEqual(null);
+  expect(response.body.currentUser).toEqual(isNumericLiteral);
 });
